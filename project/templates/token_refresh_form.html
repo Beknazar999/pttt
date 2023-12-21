@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Refresh</title>
+</head>
+<body>
+    <h2>Token Refresh</h2>
+    <form method="post" action="{% url 'token_refresh' %}">
+        {% csrf_token %}
+        <label for="refresh_token">Refresh Token:</label>
+        <input type="text" name="refresh" required>
+        <button type="submit">Refresh Token</button>
+    </form>
+</body>
+</html>
