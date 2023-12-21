@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import render
 
 
 class RegistrationAPIView(APIView):
@@ -69,3 +70,17 @@ class CustomUserTokenRefreshView(APIView):
             return Response({'access': access_token}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': 'invalid token'}, status.HTTP_401_UNAUTHORIZED)
+        
+
+def home_view(request):
+    return render(request, 'home.html')
+def change_password_form_view(request):
+    return render(request, 'change_password_form.html')
+def login_form_view(request):
+    return render(request, 'login_form.html')
+def registration_form_view(request):
+    return render(request, 'registration_form.html')
+def token_refresh_form_view(request):
+    return render(request, 'token_refresh.html')
+def user_list_view(request):
+    return render(request, 'user_list.html')

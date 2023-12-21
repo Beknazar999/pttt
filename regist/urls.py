@@ -1,5 +1,6 @@
 from django.urls import path
 from django.views.generic import TemplateView
+from .views import home_view, change_password_form_view, login_form_view, registration_form_view, token_refresh_form_view, user_list_view
 
 from django.urls import path
 from .views import (
@@ -19,4 +20,10 @@ urlpatterns = [
     path('api/v1/auth/user-update/<int:pk>/', CustomUserUpdate.as_view(), name='user_update'),
     path('api/v1/auth/change-password/', ChangePasswordAPIView.as_view(), name='change_password'),
     path('api/v1/auth/token-refresh/', CustomUserTokenRefreshView.as_view(), name='token_refresh'),
+    path('home/', home_view, name='home'),
+    path('change_password/', change_password_form_view, name='change_password'),
+    path('login/', login_form_view, name='login'),
+    path('registration/', registration_form_view, name='registration'),
+    path('token_refresh/', token_refresh_form_view, name='token_refresh'),
+    path('user_list/', user_list_view, name='user_list')
 ]
